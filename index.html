@@ -4,21 +4,24 @@
 	<title>Pizza Calculator</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="script.js"></script>
+	<script src="script.js"></script>
 </head>
-<body>
-	<header>Welkom bij de Pizza calculator</header>
-	
-<button onclick="myFunction()">Try it</button>
+<body onload="toonpizzas(), toontoppings(), toonslices()">
+	<div id="kop">
+		<header>Welkom bij de Pizza calculator</header>
+	</div>
+<div id="pizzas">
+</div>
 
-<p id="test"></p>
+<div id="toppings">
+</div>
 
-<!-- <script>
-	//function pizzas() {
-    var pizzas = ["Margherita", "Marino", "Napoletana", "Quattro formaggi", "Alle melanzane", "Prosciutto", "Calzone", "Caponne", "Parma", "Slovenska"];
-    document.getElementById("demo").innerHTML = pizzas;
- //}
-</script> -->
+<div id="slices">
+</div>
+
+
+
+
 
 
 </body>
