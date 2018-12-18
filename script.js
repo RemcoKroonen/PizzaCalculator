@@ -25,24 +25,29 @@ var topping8 =  {name:'Tonijn', price:'1,20'};
 var topping9 =  {name:'Olijf', price:'0,90'}
 var topping10 =  {name:'Ansjovis', price:'1,45'};
 
-var slice1 = {name: 'één stuk', price:'1,00'};
-var slice2 = {name: 'twee stukken', price:'1,99'};
-var slice3 = {name: 'drie stukken', price:'3,50'};
-var slice4 = {name: 'vier stukken', price:'4,55'};
-var slice5 = {name: 'vijf stukken', price:'5,00'};
-var slice6 = {name: 'zes stukken', price:'5,99'};
-var slice7 = {name: 'zeven stukken', price:'7,00'};
-var slice8 = {name: 'acht stukken', price:'7,99'};
-var slice9 = {name: 'negen stukken', price:'9,50'};
-var slice10 = {name: 'tien stukken', price:'9,99'};
-var slice11 = {name: 'elf stukken', price:'11,00'};
-var slice12 = {name: 'twaalf stukken', price:'12,50'};
+//var slice1 = {name: 'één stuk', price:'1,00'};
+//var slice2 = {name: 'twee stukken', price:'1,99'};
+//var slice3 = {name: 'drie stukken', price:'3,50'};
+//var slice4 = {name: 'vier stukken', price:'4,55'};
+//var slice5 = {name: 'vijf stukken', price:'5,00'};
+//var slice6 = {name: 'zes stukken', price:'5,99'};
+//var slice7 = {name: 'zeven stukken', price:'7,00'};
+//var slice8 = {name: 'acht stukken', price:'7,99'};
+//var slice9 = {name: 'negen stukken', price:'9,50'};
+//var slice10 = {name: 'tien stukken', price:'9,99'};
+//var slice11 = {name: 'elf stukken', price:'11,00'};
+//var slice12 = {name: 'twaalf stukken', price:'12,50'};
+
+var grootte1 = {name: 'normal'};
+var grootte2 = {name: 'medium'};
+var grootte3 = {name: 'large'};
+var grootte4 = {name: 'kingsize'}
 
 var allepizzas = [pizza1,pizza2,pizza3,pizza4,pizza5,pizza6,pizza7,pizza8,pizza9,pizza10]
 
 var alletoppings = [topping1,topping2,topping3,topping4,topping5,topping6,topping7,topping8,topping9,topping10]
 
-var alleslices = [slice1,slice2,slice3,slice4,slice5,slice6,slice7,slice8,slice9,slice10,slice11,slice12]
+//var alleslices = [slice1,slice2,slice3,slice4,slice5,slice6,slice7,slice8,slice9,slice10,slice11,slice12]
 
 function toonpizzas() {
 	var pizzatekst = 'dit zijn de pizzas <br>';
@@ -66,13 +71,13 @@ function toontoppings() {
 
 }
 
-function toonslices() {
-	var slicestekst = 'dit zijn de slices <br>';
-	for (var i = 0; i < alleslices.length; i++) {
-		slicestekst = slicestekst + "<div><p>" + alleslices[i].name + "</p> <p>" + alleslices[i].price + "</p>"
+//function toonslices() {
+	//var slicestekst = 'dit zijn de slices <br>';
+	//for (var i = 0; i < alleslices.length; i++) {
+		//slicestekst = slicestekst + "<div><p>" + alleslices[i].name + "</p> <p>" + alleslices[i].price + "</p>"
 
-	}
-	document.getElementById("slices").innerHTML = slicestekst;
+	//}
+	//document.getElementById("slices").innerHTML = slicestekst;
 
 
-}
+//}
