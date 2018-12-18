@@ -1,5 +1,7 @@
 
 //console.log(pizzas[]);
+var gekozenpizzaprijs = [];
+var gekozentoppingprijs = [];
 
 
 var pizza1 = {name:'margherita', price:'5,00', image:'images/PizzaMargherita.jpg'};
@@ -38,21 +40,21 @@ var topping10 =  {name:'Ansjovis', price:'1,45'};
 //var slice11 = {name: 'elf stukken', price:'11,00'};
 //var slice12 = {name: 'twaalf stukken', price:'12,50'};
 
-var grootte1 = {name: 'normal'};
-var grootte2 = {name: 'medium'};
-var grootte3 = {name: 'large'};
-var grootte4 = {name: 'kingsize'}
+var grootte1 = {name: 'normal', factor: '1'};
+var grootte2 = {name: 'medium',factor: '1,2'};
+var grootte3 = {name: 'large', factor: '1,4'};
+var grootte4 = {name: 'kingsize', factor: '2'};
 
-var allepizzas = [pizza1,pizza2,pizza3,pizza4,pizza5,pizza6,pizza7,pizza8,pizza9,pizza10]
+var allepizzas = [pizza1,pizza2,pizza3,pizza4,pizza5,pizza6,pizza7,pizza8,pizza9,pizza10];
 
-var alletoppings = [topping1,topping2,topping3,topping4,topping5,topping6,topping7,topping8,topping9,topping10]
+var alletoppings = [topping1,topping2,topping3,topping4,topping5,topping6,topping7,topping8,topping9,topping10];
 
-//var alleslices = [slice1,slice2,slice3,slice4,slice5,slice6,slice7,slice8,slice9,slice10,slice11,slice12]
+//var alleslices = [slice1,slice2,slice3,slice4,slice5,slice6,slice7,slice8,slice9,slice10,slice11,slice12];
 
 function toonpizzas() {
 	var pizzatekst = 'dit zijn de pizzas <br>';
 	for (var i = 0; i < allepizzas.length; i++) {
-		pizzatekst = pizzatekst + "<div><p>" + allepizzas[i].name + "</p> <img width= '304' height = '228' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p>";
+		pizzatekst = pizzatekst + "<p id='"+allepizzas[i].price+"' onclick='prijspizza(this.id)' >" + allepizzas[i].name + "</p> <img width= '304' height = '228' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p>";
 
 	}
 	document.getElementById("pizzas").innerHTML = pizzatekst;
@@ -61,15 +63,35 @@ function toonpizzas() {
 }
 
 function toontoppings() {
-	var toppingtekst = 'dit zijn de toppings <br>';
+	var toppingtekst = 'dit zijn de toppings <br> <ul>';
 	for (var i = 0; i < alletoppings.length; i++) {
-		toppingtekst = toppingtekst + "<div><p>" + alletoppings[i].name + "</p> <p>" + alletoppings[i].price + "</p>"
+		toppingtekst = toppingtekst +  "<li id= '"+alletoppings[i].price+"'onclick='prijstoppings(this.id)' >" + alletoppings[i].name + "(" + alletoppings[i].price + ")</li>"
 
 	}
+	toppingtekst = toppingtekst + "</ul>"
 	document.getElementById("toppings").innerHTML = toppingtekst;
 
 
 }
+
+function prijspizza(clicked_id){
+	gekozenpizzaprijs = clicked_id;
+	toonprijs();
+}
+
+function prijstoppings(clicked_id){
+	gekozentoppingprijs = clicked_id;
+	toonprijs();
+}
+
+function toonprijs(){
+
+	document.getElementById("totaalprijs").innerHTML = "<h1>" + gekozenpizzaprijs + gekozentoppingprijs + "</h1>";
+}
+//function toongroottes(){
+
+
+//}
 
 //function toonslices() {
 	//var slicestekst = 'dit zijn de slices <br>';
