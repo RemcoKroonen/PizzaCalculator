@@ -1,3 +1,38 @@
 .kolom {
 	float: left;
+	color: white;
+}
+.pizzakolom{
+	width: 25%;
+}
+body {
+	background-image: url("images/restaurant.jpg");
+	background-repeat:  no-repeat;
+	background-size: cover;
+}
+
+p {
+	color: white;
+}
+
+li {
+	color: white;
+}
+
+ul {
+	color: green;
+}
+
+.header {
+	padding: 40px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+}
+.prijs {
+	color: white;
+}
+.pizzategel{
+	float: left;
+	margin: 5px;
 }

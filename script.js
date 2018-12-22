@@ -52,7 +52,7 @@ var alleslices = [
 function toonpizzas() {
 	var pizzatekst = 'dit zijn de pizzas <br>';
 	for (var i = 0; i < allepizzas.length; i++) {
-		pizzatekst = pizzatekst + "<p id='"+allepizzas[i].price+"' onclick='prijspizza(this.id)' >" + allepizzas[i].name + "</p> <img width= '152' height = '114' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p>";
+		pizzatekst = pizzatekst + "<div class = 'pizzategel'> <p id='"+allepizzas[i].price+"' onclick='prijspizza(this.id)' >" + allepizzas[i].name + "</p> <img width= '152' height = '114' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p> </div>";
 
 	}
 	document.getElementById("pizzas").innerHTML = pizzatekst;
@@ -118,7 +118,7 @@ function prijslice(clicked_id){
 function toonprijs(){
 	var opgeteld = ((Number(gekozenpizzaprijs) + Number(gekozentoppingprijs)) * Number(gekozengrootteprijs)) * Number(gekozenslice);
 
-	document.getElementById("totaalprijs").innerHTML = "<h1>" + opgeteld + "</h1>";
+	document.getElementById("totaalprijs").innerHTML = "<h1> €" + opgeteld.toFixed(2) + "</h1>";
 
 }
 //function toongroottes(){
