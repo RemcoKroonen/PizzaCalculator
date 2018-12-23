@@ -14,6 +14,9 @@ body {
 p {
 	color: white;
 }
+.gekozentekst{
+	font-weight: bold;	
+}
 
 li {
 	color: white;
@@ -31,6 +34,7 @@ ul {
 }
 .prijs {
 	color: white;
+	float: right;
 }
 .pizzategel{
 	float: left;

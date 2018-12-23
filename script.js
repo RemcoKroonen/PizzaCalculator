@@ -50,7 +50,7 @@ var alleslices = [
 
 
 function toonpizzas() {
-	var pizzatekst = 'dit zijn de pizzas <br>';
+	var pizzatekst = 'Maak een keuze <br>';
 	for (var i = 0; i < allepizzas.length; i++) {
 		pizzatekst = pizzatekst + "<div class = 'pizzategel'> <p id='"+allepizzas[i].price+"' onclick='prijspizza(this.id)' >" + allepizzas[i].name + "</p> <img width= '152' height = '114' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p> </div>";
 
@@ -61,7 +61,7 @@ function toonpizzas() {
 }
 
 function toontoppings() {
-	var toppingtekst = 'dit zijn de toppings <br> <ul>';
+	var toppingtekst = 'Kies een topping <br> <ul id = "toppingslijst">';
 	for (var i = 0; i < alletoppings.length; i++) {
 		toppingtekst = toppingtekst +  "<li id= '"+alletoppings[i].price+"' onclick='prijstoppings(this.id)' >" + alletoppings[i].name + "(" + alletoppings[i].price + ")</li>"
 
@@ -73,7 +73,7 @@ function toontoppings() {
 }
 
 function toongroottes() {
-	var groottetekst = 'dit zijn de groottes <br> <ul>';
+	var groottetekst = 'kies een grootte <br> <ul id = "groottelijst">';
 	for (var i = 0; i < allegroottes.length; i++) {
 		groottetekst = groottetekst +  "<li id= '"+allegroottes[i].factor+"' onclick='prijsgrootte(this.id)' >" + allegroottes[i].name + "(" + allegroottes[i].factor + ")</li>"
 
@@ -84,7 +84,7 @@ function toongroottes() {
 
 }
 function toonslices() {
-	var slicestekst = 'dit zijn de slices <br> <ul>';
+	var slicestekst = 'Kies een slice <br> <ul id = "sliceslijst">';
 	for (var i = 0; i < alleslices.length; i++) {
 		slicestekst = slicestekst + "<li id= '"+ alleslices[i].stukken+ "' onclick='prijslice(this.id)' >" + alleslices[i].name + "</li>"
 
@@ -101,16 +101,37 @@ function prijspizza(clicked_id){
 }
 
 function prijstoppings(clicked_id){
+	var ul = document.getElementById("toppingslijst");
+	var items = ul.getElementsByClassName("gekozentekst");
+	for (var i = 0; i < items.length; i++){
+		items[i].classList.remove("gekozentekst");
+	}
+	var element = document.getElementById(clicked_id);
+	element.classList.add("gekozentekst");
 	gekozentoppingprijs = clicked_id;
 	toonprijs();
 }
 
 function prijsgrootte(clicked_id){
+	var ul = document.getElementById("groottelijst");
+	var items = ul.getElementsByClassName("gekozentekst");
+	for (var i = 0; i < items.length; i++){
+		items[i].classList.remove("gekozentekst");
+	}
+	var element = document.getElementById(clicked_id);
+	element.classList.add("gekozentekst");
 	gekozengrootteprijs = clicked_id;
 	toonprijs();
 }
 
 function prijslice(clicked_id){
+	var ul = document.getElementById("sliceslijst");
+	var items = ul.getElementsByClassName("gekozentekst");
+	for (var i = 0; i < items.length; i++){
+		items[i].classList.remove("gekozentekst");
+	}
+	var element = document.getElementById(clicked_id);
+	element.classList.add("gekozentekst");
 	gekozenslice = clicked_id;
 	toonprijs();
 }
@@ -121,6 +142,7 @@ function toonprijs(){
 	document.getElementById("totaalprijs").innerHTML = "<h1> €" + opgeteld.toFixed(2) + "</h1>";
 
 }
+
 //function toongroottes(){
 
 
