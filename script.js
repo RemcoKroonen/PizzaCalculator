@@ -52,7 +52,7 @@ var alleslices = [
 function toonpizzas() {
 	var pizzatekst = 'Maak een keuze <br>';
 	for (var i = 0; i < allepizzas.length; i++) {
-		pizzatekst = pizzatekst + "<div class = 'pizzategel'> <p id='"+allepizzas[i].price+"' onclick='prijspizza(this.id)' >" + allepizzas[i].name + "</p> <img width= '152' height = '114' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p> </div>";
+		pizzatekst = pizzatekst + "<div class = 'pizzategel' ' onclick='prijspizza(this.id)' id='"+allepizzas[i].price+"'> <p>" + allepizzas[i].name + "</p> <img width= '152' height = '114' src='" + allepizzas[i].image + "'> <p>" + allepizzas[i].price + "</p> </div>";
 
 	}
 	document.getElementById("pizzas").innerHTML = pizzatekst;
@@ -96,19 +96,35 @@ function toonslices() {
 }
 
 function prijspizza(clicked_id){
+	var div = document.getElementById("pizzas");
+	var items = div.getElementsByClassName("pizzategelgekozen");
+	for (var i = 0; i < items.length; i++) {
+		items[i].classList.remove("pizzategelgekozen");
+	}
+	var element = document.getElementById(clicked_id);
+	element.classList.add("pizzategelgekozen");
 	gekozenpizzaprijs = clicked_id;
 	toonprijs();
 }
 
 function prijstoppings(clicked_id){
+	if (document.getElementById(clicked_id).classList.contains("gekozentekst")) {
+		var element = document.getElementById(clicked_id);
+		element.classList.remove("gekozentekst");
+	}
+	else{
+		var element = document.getElementById(clicked_id);
+		element.classList.add("gekozentekst");
+	}
 	var ul = document.getElementById("toppingslijst");
 	var items = ul.getElementsByClassName("gekozentekst");
+	gekozentoppingprijs = 0;
+	debugger;
 	for (var i = 0; i < items.length; i++){
-		items[i].classList.remove("gekozentekst");
+		gekozentoppingprijs += Number(items[i].id);
+		//items[i].classList.remove("gekozentekst");
 	}
-	var element = document.getElementById(clicked_id);
-	element.classList.add("gekozentekst");
-	gekozentoppingprijs = clicked_id;
+	//gekozentoppingprijs = clicked_id;
 	toonprijs();
 }
 

@@ -40,3 +40,7 @@ ul {
 	float: left;
 	margin: 5px;
 }
+.pizzategelgekozen{
+	opacity: 0.5;
+	background-color: white;
+}
