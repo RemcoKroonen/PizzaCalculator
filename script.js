@@ -1,12 +1,12 @@
 
 //console.log(pizzas[]);
-var chosenpizzaprice = [];
-var chosentoppingprice = [];
-var chosenslice = 1;
-var chosensizeprice = 1;
+var chosenPizzaPrice = [];
+var chosenToppingPrice = [];
+var chosenSlice = 1;
+var chosenSizePrice = 1;
 
 
-var allpizzas = [
+var allPizzas = [
 				{name:'margherita', price:'5.00', image:'images/PizzaMargherita.jpg'},
 				{name:'marino', price:'6.50', image:'images/marinos.jpg'},
 				{name:'napoletana', price:'8.99', image:'images/napoletana.jpg'},
@@ -20,7 +20,7 @@ var allpizzas = [
 
 	 ];
 
-var alltoppings = [
+var allToppings = [
 				{name:'Extra kaas', price:'0.50'},
 				{name:'Spek', price:'0.99'},
 				{name:'Ham', price:'0.99'},
@@ -32,9 +32,9 @@ var alltoppings = [
 				{name:'Olijf', price:'0.90'},
 				{name:'Ansjovis', price:'1.45'}];
 
-var allegroottes = [{name: 'normal', factor: '1'},{name: 'medium', factor: '1.2'},{name: 'large', factor: '1.4'},{name: 'kingsize', factor: '2'}];
+var allSizes = [{name: 'normal', factor: '1'},{name: 'medium', factor: '1.2'},{name: 'large', factor: '1.4'},{name: 'kingsize', factor: '2'}];
 
-var alleslices = [
+var allSlices = [
 				{name: 'één stuk', stukken: 1/12},
 				{name: 'twee stukken', stukken:2/12},
 				{name: 'drie stukken', stukken:3/12},
@@ -49,116 +49,116 @@ var alleslices = [
 				{name: 'twaalf stukken', stukken: 12/12}];
 
 
-function toonpizzas() {
-	var pizzatekst = 'Maak een keuze <br>';
-	for (var i = 0; i < allpizzas.length; i++) {
-		pizzatekst = pizzatekst + "<div class = 'pizzategel' ' onclick='prijspizza(this.id)' id='"+allpizzas[i].price+"'> <p>" + allpizzas[i].name + "</p> <img width= '152' height = '114' src='" + allpizzas[i].image + "'> <p>" + allpizzas[i].price + "</p> </div>";
+function showPizzas() {
+	var pizzaText = 'Maak een keuze <br>';
+	for (var i = 0; i < allPizzas.length; i++) {
+		pizzaText = pizzaText + "<div class = 'pizzaTile' ' onclick='pricePizza(this.id)' id='"+allPizzas[i].price+"'> <p>" + allPizzas[i].name + "</p> <img width= '152' height = '114' src='" + allPizzas[i].image + "'> <p>" + allPizzas[i].price + "</p> </div>";
 
 	}
-	document.getElementById("pizzas").innerHTML = pizzatekst;
+	document.getElementById("pizzas").innerHTML = pizzaText;
 
 
 }
 
-function toontoppings() {
-	var toppingtekst = 'Kies een topping <br> <ul id = "toppingslijst">';
-	for (var i = 0; i < alltoppings.length; i++) {
-		toppingtekst = toppingtekst +  "<li id= '"+alltoppings[i].price+"' onclick='prijstoppings(this.id)' >" + alltoppings[i].name + "(" + alltoppings[i].price + ")</li>"
+function showToppings() {
+	var toppingText = 'Kies een topping <br> <ul id = "toppingsList">';
+	for (var i = 0; i < allToppings.length; i++) {
+		toppingText = toppingText +  "<li id= '"+allToppings[i].price+"' onclick='priceToppings(this.id)' >" + allToppings[i].name + "(" + allToppings[i].price + ")</li>"
 
 	}
-	toppingtekst = toppingtekst + "</ul>"
-	document.getElementById("toppings").innerHTML = toppingtekst;
+	toppingText = toppingText + "</ul>"
+	document.getElementById("toppings").innerHTML = toppingText;
 
 
 }
 
-function toongroottes() {
-	var groottetekst = 'kies een grootte <br> <ul id = "groottelijst">';
-	for (var i = 0; i < allegroottes.length; i++) {
-		groottetekst = groottetekst +  "<li id= '"+allegroottes[i].factor+"' onclick='prijsgrootte(this.id)' >" + allegroottes[i].name + "(" + allegroottes[i].factor + ")</li>"
+function showSizes() {
+	var sizeText = 'kies een grootte <br> <ul id = "sizeList">';
+	for (var i = 0; i < allSizes.length; i++) {
+		sizeText = sizeText +  "<li id= '"+allSizes[i].factor+"' onclick='priceSize(this.id)' >" + allSizes[i].name + "(" + allSizes[i].factor + ")</li>"
 
 	}
-	groottetekst = groottetekst + "</ul>"
-	document.getElementById("grootte").innerHTML = groottetekst;
+	sizeText = sizeText + "</ul>"
+	document.getElementById("sizes").innerHTML = sizeText;
 
 
 }
-function toonslices() {
-	var slicestekst = 'Kies een slice <br> <ul id = "sliceslijst">';
-	for (var i = 0; i < alleslices.length; i++) {
-		slicestekst = slicestekst + "<li id= '"+ alleslices[i].stukken+ "' onclick='prijslice(this.id)' >" + alleslices[i].name + "</li>"
+function showSlices() {
+	var sliceText = 'Kies een slice <br> <ul id = "slicesList">';
+	for (var i = 0; i < allSlices.length; i++) {
+		sliceText = sliceText + "<li id= '"+ allSlices[i].stukken+ "' onclick='priceSlice(this.id)' >" + allSlices[i].name + "</li>"
 
 	}
-	slicestekst = slicestekst + "</ul>"
-	document.getElementById("slices").innerHTML = slicestekst;
+	sliceText = sliceText + "</ul>"
+	document.getElementById("slices").innerHTML = sliceText;
 
 
 }
 
-function prijspizza(clicked_id){
+function pricePizza(clicked_id){
 	var div = document.getElementById("pizzas");
-	var items = div.getElementsByClassName("pizzategelgekozen");
+	var items = div.getElementsByClassName("pizzaTileChosen");
 	for (var i = 0; i < items.length; i++) {
-		items[i].classList.remove("pizzategelgekozen");
+		items[i].classList.remove("pizzaTileChosen");
 	}
 	var element = document.getElementById(clicked_id);
-	element.classList.add("pizzategelgekozen");
-	chosenpizzaprice = clicked_id;
-	toonprijs();
+	element.classList.add("pizzaTileChosen");
+	chosenPizzaPrice = clicked_id;
+	showPrice();
 }
 
-function prijstoppings(clicked_id){
-	if (document.getElementById(clicked_id).classList.contains("gekozentekst")) {
+function priceToppings(clicked_id){
+	if (document.getElementById(clicked_id).classList.contains("chosenText")) {
 		var element = document.getElementById(clicked_id);
-		element.classList.remove("gekozentekst");
+		element.classList.remove("chosenText");
 	}
 	else{
 		var element = document.getElementById(clicked_id);
-		element.classList.add("gekozentekst");
+		element.classList.add("chosenText");
 	}
-	var ul = document.getElementById("toppingslijst");
-	var items = ul.getElementsByClassName("gekozentekst");
-	chosentoppingprice = 0;
+	var ul = document.getElementById("toppingsList");
+	var items = ul.getElementsByClassName("chosenText");
+	chosenToppingPrice = 0;
 	for (var i = 0; i < items.length; i++){
-		chosentoppingprice += Number(items[i].id);
-		//items[i].classList.remove("gekozentekst");
+		chosenToppingPrice += Number(items[i].id);
+		//items[i].classList.remove("chosenText");
 	}
-	//chosentoppingprice = clicked_id;
-	toonprijs();
+	//chosenToppingPrice = clicked_id;
+	showPrice();
 }
 
-function prijsgrootte(clicked_id){
-	var ul = document.getElementById("groottelijst");
-	var items = ul.getElementsByClassName("gekozentekst");
+function priceSize(clicked_id){
+	var ul = document.getElementById("sizeList");
+	var items = ul.getElementsByClassName("chosenText");
 	for (var i = 0; i < items.length; i++){
-		items[i].classList.remove("gekozentekst");
+		items[i].classList.remove("chosenText");
 	}
 	var element = document.getElementById(clicked_id);
-	element.classList.add("gekozentekst");
-	chosensizeprice = clicked_id;
-	toonprijs();
+	element.classList.add("chosenText");
+	chosenSizePrice = clicked_id;
+	showPrice();
 }
 
-function prijslice(clicked_id){
-	var ul = document.getElementById("sliceslijst");
-	var items = ul.getElementsByClassName("gekozentekst");
+function priceSlice(clicked_id){
+	var ul = document.getElementById("slicesList");
+	var items = ul.getElementsByClassName("chosenText");
 	for (var i = 0; i < items.length; i++){
-		items[i].classList.remove("gekozentekst");
+		items[i].classList.remove("chosenText");
 	}
 	var element = document.getElementById(clicked_id);
-	element.classList.add("gekozentekst");
-	chosenslice = clicked_id;
-	toonprijs();
+	element.classList.add("chosenText");
+	chosenSlice = clicked_id;
+	showPrice();
 }
 
-function toonprijs(){
-	var opgeteld = ((Number(chosenpizzaprice) + Number(chosentoppingprice)) * Number(chosensizeprice)) * Number(chosenslice);
+function showPrice(){
+	var summedUp = ((Number(chosenPizzaPrice) + Number(chosenToppingPrice)) * Number(chosenSizePrice)) * Number(chosenSlice);
 
-	document.getElementById("totaalprijs").innerHTML = "<h1> €" + opgeteld.toFixed(2) + "</h1>";
+	document.getElementById("summedUp").innerHTML = "<h1> €" + summedUp.toFixed(2) + "</h1>";
 
 }
 
-//function toongroottes(){
+//function showSizes(){
 
 
 

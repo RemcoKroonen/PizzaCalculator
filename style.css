@@ -1,8 +1,8 @@
-.kolom {
+.column {
 	float: left;
 	color: white;
 }
-.pizzakolom{
+.pizzaColumn{
 	width: 25%;
 }
 body {
@@ -14,7 +14,7 @@ body {
 p {
 	color: white;
 }
-.gekozentekst{
+.chosenText{
 	font-weight: bold;	
 }
 
@@ -32,15 +32,15 @@ ul {
 	color: white;
 	font-size: 20px;
 }
-.prijs {
+.price {
 	color: white;
 	float: right;
 }
-.pizzategel{
+.pizzaTile{
 	float: left;
 	margin: 5px;
 }
-.pizzategelgekozen{
+.pizzaTileChosen{
 	opacity: 0.5;
 	background-color: white;
 }
