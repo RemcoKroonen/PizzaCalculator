@@ -95,6 +95,15 @@ function showSlices() {
 
 }
 
+function showGeneral(heading, items) {
+	var divText = heading;
+	for (var i = 0; i < items.lenght; i++) {
+		
+	}
+}
+
+
+
 function pricePizza(clicked_id){
 	var div = document.getElementById("pizzas");
 	var items = div.getElementsByClassName("pizzaTileChosen");
@@ -128,28 +137,26 @@ function priceToppings(clicked_id){
 }
 
 function priceSize(clicked_id){
-	var ul = document.getElementById("sizeList");
-	var items = ul.getElementsByClassName("chosenText");
-	for (var i = 0; i < items.length; i++){
-		items[i].classList.remove("chosenText");
-	}
-	var element = document.getElementById(clicked_id);
-	element.classList.add("chosenText");
+	showChosenText("sizeList", clicked_id);
 	chosenSizePrice = clicked_id;
 	showPrice();
 }
 
 function priceSlice(clicked_id){
-	var ul = document.getElementById("slicesList");
+	showChosenText("sliceList", clicked_id);
+	chosenSlice = clicked_id;
+	showPrice();
+}
+//
+function showChosenText(listName, clicked_id){
+	var ul = document.getElementById(listName);
 	var items = ul.getElementsByClassName("chosenText");
 	for (var i = 0; i < items.length; i++){
 		items[i].classList.remove("chosenText");
 	}
 	var element = document.getElementById(clicked_id);
 	element.classList.add("chosenText");
-	chosenSlice = clicked_id;
-	showPrice();
-}
+};
 
 function showPrice(){
 	var summedUp = ((Number(chosenPizzaPrice) + Number(chosenToppingPrice)) * Number(chosenSizePrice)) * Number(chosenSlice);
