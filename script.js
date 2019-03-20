@@ -60,7 +60,7 @@ function showPizzas() {
 
 }
 
-function showToppings() {
+/*function showToppings() {
 	var toppingText = 'Kies een topping <br> <ul id = "toppingsList">';
 	for (var i = 0; i < allToppings.length; i++) {
 		toppingText = toppingText +  "<li id= '"+allToppings[i].price+"' onclick='priceToppings(this.id)' >" + allToppings[i].name + "(" + allToppings[i].price + ")</li>"
@@ -93,13 +93,36 @@ function showSlices() {
 	document.getElementById("slices").innerHTML = sliceText;
 
 
-}
+}*/
 
-function showGeneral(heading, items) {
-	var divText = heading;
-	for (var i = 0; i < items.lenght; i++) {
-		
+function showGeneral() {
+	var toppingText = 'Kies een topping <br> <ul id = "toppingsList">';
+	for (var i = 0; i < allToppings.length; i++) {
+		toppingText = toppingText +  "<li id= '"+allToppings[i].price+"' onclick='priceToppings(this.id)' >" + allToppings[i].name + "(" + allToppings[i].price + ")</li>"
+
 	}
+	toppingText = toppingText + "</ul>"
+	document.getElementById("toppings").innerHTML = toppingText;
+
+	var sizeText = 'kies een grootte <br> <ul id = "sizeList">';
+	for (var i = 0; i < allSizes.length; i++) {
+		sizeText = sizeText +  "<li id= '"+allSizes[i].factor+"' onclick='priceSize(this.id)' >" + allSizes[i].name + "(" + allSizes[i].factor + ")</li>"
+
+	}
+	sizeText = sizeText + "</ul>"
+	document.getElementById("sizes").innerHTML = sizeText;
+
+
+	var sliceText = 'Kies een slice <br> <ul id = "slicesList">';
+	for (var i = 0; i < allSlices.length; i++) {
+		sliceText = sliceText + "<li id= '"+ allSlices[i].stukken+ "' onclick='priceSlice(this.id)' >" + allSlices[i].name + "</li>"
+
+	}
+	sliceText = sliceText + "</ul>"
+	document.getElementById("slices").innerHTML = sliceText;
+
+
+	
 }
 
 
@@ -143,7 +166,7 @@ function priceSize(clicked_id){
 }
 
 function priceSlice(clicked_id){
-	showChosenText("sliceList", clicked_id);
+	showChosenText("slicesList", clicked_id);
 	chosenSlice = clicked_id;
 	showPrice();
 }
